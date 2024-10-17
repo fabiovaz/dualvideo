@@ -76,9 +76,7 @@ export default function Home() {
       <video
         ref={video1Ref}
         src="/video1.mp4"
-        className={`absolute top-0 left-0 size-full object-cover transition-opacity duration-100 ${
-          isVideo2Active ? "opacity-0" : "opacity-100"
-        }`}
+        className={`pointer-events-none absolute top-0 left-0 size-full object-cover transition-opacity duration-100 ${ isVideo2Active ? "opacity-0" : "opacity-100" }`}
         loop
         muted
       />
@@ -86,9 +84,7 @@ export default function Home() {
       <video
         ref={video2Ref}
         src="/video2.mp4"
-        className={`absolute top-0 right-0 size-full object-cover transition-opacity duration-100 ${
-          isVideo2Active ? "opacity-100" : "opacity-0"
-        }`}
+        className={`pointer-events-none absolute top-0 right-0 size-full object-cover transition-opacity duration-100 ${ isVideo2Active ? "opacity-100" : "opacity-0" }`}
         loop
         muted
       />
