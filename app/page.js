@@ -72,24 +72,8 @@ export default function Home() {
   }, [])
 
   return (
-    <div className="relative h-screen w-screen">
-      <video
-        ref={video1Ref}
-        src="/video1.mp4"
-        className={`pointer-events-none absolute top-0 left-0 size-full object-cover transition-opacity duration-100 ${ isVideo2Active ? "opacity-0" : "opacity-100" }`}
-        loop
-        muted
-      />
-
-      <video
-        ref={video2Ref}
-        src="/video2.mp4"
-        className={`pointer-events-none absolute top-0 right-0 size-full object-cover transition-opacity duration-100 ${ isVideo2Active ? "opacity-100" : "opacity-0" }`}
-        loop
-        muted
-      />
-
-      <button className="absolute inset-0 flex items-end py-8 justify-center bottom-0" onClick={startVideos}>
+    <>
+      <button className="z-10 absolute inset-0 flex items-end py-8 justify-center bottom-0" onClick={startVideos}>
         <div className="text-center">
           <div className="size-20 mx-auto text-white fill-white">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 979.404 941.223" className="size-full">
@@ -108,12 +92,29 @@ export default function Home() {
         </div>
       </button>
       {!isPlaying && (
-        <button className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50" onClick={startVideos}>
+        <button className="z-20 absolute inset-0 flex items-center justify-center bg-black bg-opacity-50" onClick={startVideos}>
           <div className="text-center">
             <h1 className="text-white text-2xl font-bold">Clique aqui para começar</h1>
           </div>
         </button>
       )}
-    </div>
+      <div className="z-0 relative h-screen w-screen pointer-events-none">
+        <video
+          ref={video1Ref}
+          src="/video1.mp4"
+          className={`absolute top-0 left-0 size-full object-cover transition-opacity duration-100 ${ isVideo2Active ? "opacity-0" : "opacity-100" }`}
+          loop
+          muted
+        />
+
+        <video
+          ref={video2Ref}
+          src="/video2.mp4"
+          className={`absolute top-0 right-0 size-full object-cover transition-opacity duration-100 ${ isVideo2Active ? "opacity-100" : "opacity-0" }`}
+          loop
+          muted
+        />
+      </div>
+    </>
   );
 }
